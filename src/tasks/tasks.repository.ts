@@ -27,7 +27,7 @@ export class TasksRepository extends Repository<Task> {
 
     if (search) {
       query.andWhere(
-        'UPPER(task.title) LIKE :search OR UPPER(task.description) LIKE :search',
+        '(UPPER(task.title) LIKE :search OR UPPER(task.description) LIKE :search)',
         { search: `%${search.toUpperCase()}%` }
       );
     }
